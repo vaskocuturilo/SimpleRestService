@@ -2,6 +2,7 @@ package com.example.services.controller;
 
 import com.example.services.entity.UserEntity;
 import com.example.services.exception.UserAlreadyExistException;
+import com.example.services.exception.UserNotFoundException;
 import com.example.services.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -26,9 +27,11 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity getUsers() {
+    public ResponseEntity getUser(@RequestParam Long id) {
         try {
-            return ResponseEntity.ok("The server is work fine");
+            return ResponseEntity.ok(userService.getUser(id));
+        } catch (UserNotFoundException exception) {
+            return ResponseEntity.badRequest().body(exception.getMessage());
         } catch (Exception exception) {
             return ResponseEntity.badRequest().body("Error in response");
         }
