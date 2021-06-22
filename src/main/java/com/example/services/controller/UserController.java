@@ -33,7 +33,16 @@ public class UserController {
         } catch (UserNotFoundException exception) {
             return ResponseEntity.badRequest().body(exception.getMessage());
         } catch (Exception exception) {
-            return ResponseEntity.badRequest().body("Error in response");
+            return ResponseEntity.badRequest().body("The user with id  = " + id + " was not found.");
+        }
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity removeUser(@PathVariable Long id) {
+        try {
+            return ResponseEntity.ok("The user with id " + userService.deleteUser(id) + " was deleted.");
+        } catch (Exception exception) {
+            return ResponseEntity.badRequest().body("Unable to delete user.");
         }
     }
 }
