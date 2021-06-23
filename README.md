@@ -19,6 +19,13 @@ You will need the following technologies available to try it out:
 * IDE of your choice
 * Web browser Chrome
 
+## Running the project
+
+1. Create databases with name **user** and **entity**
+2. Open terminal and navigate to your project
+3. Type command **./gradlew install**
+4. Type command **./gradlew spring-boot:run**
+
 ### You can open service at:
 
 ``` http://http://localhost:8080/```
