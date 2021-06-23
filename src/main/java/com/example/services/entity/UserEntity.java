@@ -1,9 +1,7 @@
 package com.example.services.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class UserEntity {
@@ -12,6 +10,9 @@ public class UserEntity {
     private Long id;
     private String username;
     private String password;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userEntity")
+    private List<ToDoEntity> toDoEntityList;
 
     public UserEntity() {
     }
@@ -38,5 +39,9 @@ public class UserEntity {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<ToDoEntity> getToDoEntityList() {
+        return toDoEntityList;
     }
 }
