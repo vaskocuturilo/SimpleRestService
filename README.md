@@ -1,11 +1,11 @@
-## This is example simple rest service 
+## This is example simple rest service. 
 
 ## Requirements:
 - Use any *object-oriented language* .
-- 
-- Use automation patterns like *PageObject*, *data-driven* tests, etc.
-- Use any testing frameworks.
-- provide code and clear instructions how to run it.
+- Create endpoints for user.
+- Create endpoints for tasks.
+- Create automation scripts for testing.
+- Add Report.
 
 **Note**: please put your code in public repository.
 
@@ -19,14 +19,28 @@ You will need the following technologies available to try it out:
 * IDE of your choice
 * Web browser Chrome
 
-### Ho w to run
+### You can open service at:
 
-```./gradlew clean test -Denv=test```
+``` http://http://localhost:8080/```
 
-- [x] ability to run tests for different browsers/os by configuring;
-- [x] ability to run tests for different environments(urls) by configuring/by command-line.
+### For get info about user:
+``` http://http://localhost:8080/user?id=1```
 
-```./gradlew clean test -Denv=prod -Dbrowser=firefox```
+### For create new user using POST:
+``` http://http://localhost:8080/create```  
+
+### In the body use:
+{
+  "username": "user100",
+  "password": "pass"
+}
+
+### For delete user using DELETE:
+``` http://http://localhost:8080/remove/1```
+
+### How to run automation scripts:
+
+```./gradlew clean test -Denv=local```
 
 ### Generate Allure report
 
@@ -35,7 +49,6 @@ You will need the following technologies available to try it out:
 ### Open Allure report in browser
 
 ```./gradlew allureServe```
-
 
 ![]()
 
